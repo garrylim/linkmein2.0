@@ -164,12 +164,14 @@ public class CommonController {
 		
 		// reset password page
 		@GetMapping("/reset-password")
-		public String showResetPasswordPage(@Param(value = "email") String email, Model model) {
+		public String showResetPasswordPage(@Param(value = "token") String token, Model model) {
 			
-			User user = userService.getUserByEmail(email);
+			User user = userService.getUserByResetPasswordToken(token);
+			model.addAttribute("token", token);
 			
 			if(user == null) {
-				return "verify_fail";
+				model.addAttribute("message", "Invalid token");
+				return "message";
 			} else {
 				model.addAttribute("email", user.getEmail());
 			}
@@ -203,7 +205,7 @@ public class CommonController {
 			User user = userService.getUserByResetPasswordToken(code);
 			// if user exists, means verified user
 		    if (user != null) {
-		    	userService.resetPasswordToken(code); 
+		    	userService.resetPasswordToken(code);
 		    	String url = "redirect:reset-password?email=" + user.getEmail();
 		        return url;
 		    } else {
