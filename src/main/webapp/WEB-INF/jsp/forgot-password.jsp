@@ -46,9 +46,8 @@
       <input type="hidden" name="${_csrf.parameterName}"
               value="${_csrf.token}" />
       
-          <div class="card" style="width: auto; margin: auto;">
+          <div class="card" style="width: 20rem; margin: auto;">
               <div class="card-body text-center">
-              <span class="text-info">Link</span>Me<span class="text-success">In</span>
                   <h4 class="mb-4">Forgot Password</h4>
                   <p>Please enter your registered email.<p>
                   <div class="form-group mt-2 mb-4">
