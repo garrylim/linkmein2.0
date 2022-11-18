@@ -46,7 +46,7 @@
       <input type="hidden" name="${_csrf.parameterName}"
               value="${_csrf.token}" />
       
-          <div class="card" style="width: auto; margin: auto;">
+          <div class="card" style="width: 20rem; margin: auto;">
               <div class="card-body text-center">
               <span class="text-info">Link</span>Me<span class="text-success">In</span>
                   <h4 class="mb-4">Forgot Password</h4>
@@ -72,10 +72,10 @@
                   </div>
      
                 <footer class="mt-5 text-muted">
-                  <span>&copy; 2022 By. <a href="/">LinkMeIn</a> portal.<br/>
+                  <span>&copy; 2022 By. <a href="https://github.com/garrylim/linkmein2.0">LinkMeIn</a> portal.<br/>
                       Made by <span class="text-info">Garry</span><br>In <span class="text-danger">Wawasan Open University Penang.</span><br/>
                       <i class="fa-brands fa-github"></i>
-                      <a href="https://github.com/garrylim/linkmein"> linkmein</a>
+                      <a href="https://github.com/garrylim/linkmein2.0"> linkmein</a>
                   </span>
               </div>
               </footer>
