@@ -44,9 +44,12 @@
       <!--left nav-->
       <div class="nav-contact">
         <ul class="nav-contact">
-          <li><a href="https://www.facebook.com/skyexus.lim"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
-          <li><a href="https://www.instagram.com/skyexus/"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
-          <li><a href="https://www.github.com/garrylim"><i class="fab fa-github"></i><span>Github</span></a></li>
+          <li><a href="#"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i><span>Twitter</span></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+          <li><a href="#"><i class="fab fa-linkedin-in"></i><span>Linkedin</span></a></li>
+          <li><a href="#"><i class="fab fa-github"></i><span>Github</span></a></li>
+          <li><a href="#"><i class="fab fa-youtube"></i><span>Youtube</span></a></li>
           </ul>
       </div>
 
