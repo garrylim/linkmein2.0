@@ -57,7 +57,9 @@ public class SecurityConfig {
 			.antMatchers(HttpMethod.GET, "/verify-reset-password").permitAll()
 			.antMatchers(HttpMethod.GET, "/reset-password").permitAll()
 			.antMatchers(HttpMethod.POST, "/reset-password").permitAll()
-			
+			.antMatchers(HttpMethod.GET, "/job").permitAll()
+			.antMatchers(HttpMethod.GET, "/newJob").permitAll()
+			.antMatchers(HttpMethod.POST, "/newJob").permitAll()
 			.anyRequest().authenticated()
 			.and()
 		.formLogin()

@@ -1,6 +1,7 @@
 <!doctype html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 	<head>
 		<title>Linkmein</title>
@@ -40,18 +41,6 @@
             </li>
           </ul>
         </div>
-         <section>
-              <div class="container">
-              <c:url var="search_url" value="/dashboard" />
-              <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-                        <form:form role="search" action="${search_url}" method="post">
-                            <div class="input-group">
-                                  <input class="form-control" name="keyword" type="search" placeholder="Search" aria-label="Search">
-                                  <button class="btn btn-success me-2" type="submit">Search</button>
-                            </div>
-                        </form:form>
-                </div>
-            </section>
             <ul class="navbar-nav me-2 my-2 my-lg-0 navbar-nav-scroll" modelattribute="loggedinuser" style="--bs-scroll-height: 100px;">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -73,33 +62,76 @@
         </div>
 
     </nav>
-    
-    <table class="table card-body text-center">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Username</th>
-            <th scope="col">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <c:if test="${not empty users}">
-          <c:forEach var="user" items="${users}">
-          <tr>
-            <th scope="row">${user.id}</th>
-            <td>${user.username}</td>
-            <td>${user.email}</td>
-          </tr>
-          </c:forEach>
-          </c:if>
-        </tbody>
-      </table>
-
-    <section>
-      <div class="container" style="margin-top: 600px;"></div>
+                
+    <section class="container mb-5" style="margin-top: 30px;">
+          
+      <form:form action="/newJob" method="post" modelattribute="post">
+      	<div class="card px-5 py-5" style="max-width: 100vw !important;">
+  			<div class="card-body">
+    		<h3 class="card-title text-center mb-5">Post Free Job Listing</h3>
+    		<h6 class="card-subtitle mb-2 text-muted text-center">New Job Post</h6>
+    		<p class="card-text text-center text-muted">Create a job post available at your company or some awesome places and find the right applicants for your open role  to recruit talent through LinkedMeIn Portal.</p>
+    		
+    		<div class="form-group mb-3">
+    			<label for="inputPosition">*Position:</label>
+    			<input type="text" class="form-control" name="position" id="position" aria-describedby="positionHelp" required autofocus>
+    			<small id="positionHelp" class="form-text text-muted">Describe job position.</small>
+    		</div>
+    		
+    		<div class="form-group mb-3">
+    			<label for="inputSalary">*Salary (MYR):</label>
+    			<input type="text" class="form-control" name="salary" id="salary" aria-describedby="salaryHelp" required>
+    			<small id=""salaryHelp"" class="form-text text-muted">Describe actual or indicative salary (MYR) for the job position.</small>
+    		</div>
+    		
+    		<div class="form-group mb-3">
+    			<label for="inputContent">*Content:</label>
+    			<textarea class="form-control" name="content" id="content" rows="10" aria-describedby="countryHelp" required></textarea>
+    			<small id="countryHelp" class="form-text text-muted">Describe or explain the job roles, description, requirements, etc; here.</small>
+    		</div>
+    		
+    		<div class="form-group mb-3">
+    			<label for="inputCompany">*Company Name:</label>
+    			<input type="text" class="form-control" name="company" id="company" aria-describedby="companyHelp" required>
+    			<small id="companyHelp" class="form-text text-muted">Type the name of the company that offer the job.</small>
+    		</div>
+    		
+    		<div class="form-group mb-3">
+    			<label for="inputCity">*City:</label>
+    			<input type="text" class="form-control" name="city" id="city" aria-describedby="cityHelp" required>
+    			<small id="cityHelp" class="form-text text-muted">Type the name of city of the company's location.</small>
+    		</div>
+    		
+    		<div class="form-group mb-3">
+    			<label for="inputCountry">*Country:</label>
+    			<input type="text" class="form-control" name="country" id="country" aria-describedby="countryHelp" required>
+    			<small id="countryHelp" class="form-text text-muted">Type the name of country of the company's location.</small>
+    		</div>
+    		
+    		<div class="form-check mt-5">
+  				<input class="form-check-input" type="checkbox" value="#" id="checkbox1">
+  				<label class="form-check-label" for="flexCheckDefault">
+    				<small class="form-text text-muted">I hereby declare that the information provided is true and correct. I also understand that any 
+    				willful dishonesty may render immediate removal of this job post and lawful consideration by LinkedMeIn Company.</small>
+  				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="checkbox2">
+  				<label class="form-check-label" for="flexCheckDefault">
+    				<small class="form-text text-muted">I agree to the terms and conditions as set out by the user agreement and our terms of service.</small>
+  				</label>
+			</div>
+    		
+    		<div class="d-grid gap-2 mt-4">
+  				<a href="/job" class="btn btn-danger">Cancel</a>
+  				<button type="submit" name="submit" id="submit" class="btn btn-success">Submit</button>
+			</div>
+  			</div>
+		</div>
+      </form:form>
     </section>
-
-    <!--Footer-->
+  
+  	<!--Footer-->
     <footer class="py-5 bg-light text-muted">
       <div class="container">
           <div class="row">
@@ -122,5 +154,6 @@
           </div>
       </div>
   </footer>
-  </body>
-</html>
+
+    <script src="https://kit.fontawesome.com/e19fcdf015.js" crossorigin="anonymous"></script>
+    </html>

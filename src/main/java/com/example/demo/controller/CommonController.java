@@ -125,7 +125,7 @@ public class CommonController {
 		@PostMapping("/update-profile")  
 	    public String updateUserProfile(Model model, @ModelAttribute("user") User tmp, @RequestParam("id") Integer user_id) {
 	        User user = userService.getUserById(user_id);
-
+	        user.setUsername(tmp.getUsername());
 	        user.setFirstname(tmp.getFirstname());
 	        user.setLastname(tmp.getLastname());
 	        user.setCompany(tmp.getCompany());
@@ -134,7 +134,7 @@ public class CommonController {
 
 	        userService.saveUser(user);
 
-	        return "dashboard";  //back to the page you want
+	        return "redirect:dashboard";  //back to the page you want
 	    }
 		
 		
