@@ -123,9 +123,12 @@ public class CommonController {
 			}
 		
 		@PostMapping("/update-profile")  
-	    public String updateUserProfile(Model model, @ModelAttribute("user") User tmp, @RequestParam("id") Integer user_id) {
+	    public String updateUserProfile(Model model, @ModelAttribute("user") User tmp, @RequestParam("id") Integer user_id,
+	    		@AuthenticationPrincipal CustomUserDetails loggedinUser) {
 	        User user = userService.getUserById(user_id);
+	        
 	        user.setUsername(tmp.getUsername());
+	        loggedinUser.setUsername(tmp.getUsername());
 	        user.setFirstname(tmp.getFirstname());
 	        user.setLastname(tmp.getLastname());
 	        user.setCompany(tmp.getCompany());
