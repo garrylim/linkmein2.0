@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -25,6 +26,9 @@ public class User {
 	private String company;
 	private String city;
 	private String country;
+	
+	@OneToMany(mappedBy = "user")
+	private List<post> posts;
 	
 	@Column(name = "img")
 	private String img;
@@ -124,5 +128,11 @@ public class User {
 	}
 	public void setBio(String bio) {
 		this.bio = bio;
+	}
+	public List<post> getPosts() {
+		return posts;
+	}
+	public void setPosts(List<post> posts) {
+		this.posts = posts;
 	}
 }

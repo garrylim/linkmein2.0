@@ -39,24 +39,19 @@
               </li>
             </ul>
           </div>
-          <ul class="navbar-nav me-2 my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
-                  aria-expanded="false" modelattribute="username">
-                    @${username}
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-lg-end" >
-                    <li>
-                      <a class="dropdown-item" href="/profile?id=${user_id}" modelattribute="user_id">
-                        Profile
-                      </a>
-                    </li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="/settings">Settings</a></li>
-                      <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
-                  </ul>
+          <ul class="navbar-nav me-2 my-2 my-lg-0 navbar-nav-scroll" modelattribute="loggedinuser" style="--bs-scroll-height: 100px;">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  @<c:out value="${pageContext.request.remoteUser}" />
+                </a>
+                <ul class="dropdown-menu dropdown-menu-lg-end" >
+                  <li><a class="dropdown-item" href="/profile?id=${user_id}">Profile</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/settings">Settings</a></li>
+                  <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                </ul>
               </li>
-          </ul>
+      </ul>
           
           <form action="/logout" method="post">
           <input type="hidden" name="${_csrf.parameterName}"
